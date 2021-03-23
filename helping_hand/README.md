@@ -1,4 +1,0 @@
-# helping_hand
-
-
-
