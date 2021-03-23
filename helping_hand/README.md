@@ -1,6 +1,6 @@
 # helping_hand
 
-A new Flutter application.
+
 
 ## Getting Started
 
