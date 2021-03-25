@@ -81,7 +81,7 @@ from django.contrib.auth.models import User
 
 def leaderboard(request):
 
-    top10 = (UserProfileInfo.objects.values_list('user_id', 'points').order_by('points'))[:2]
+    top10 = (UserProfileInfo.objects.values_list('user_id', 'points').order_by('points'))[:10]
     name=[]
     points=[]
     tuplist =[]
@@ -102,10 +102,21 @@ def donate(request):
 
         response['name'] = str(category)
         tf.keras.backend.clear_session()
-        
+
+
+        if(str(category)!='Glass' or str(category)!='Metal'):
+            #save the image
+            response['valid'] = 1
+            # instance=request.user
+            user_id = request.POST.get('id')
+            a = UserProfileInfo.objects.get(user_id = user_id)
+            a.points += 10
+            a.save()
+
+        else:
+            response['valid'] = 0
         return render(request,'apphelp/donate.html',response)
 
     else:
         return render(request,'apphelp/donate.html')
 
-    # return render(request, 'apphelp/donate.html')
