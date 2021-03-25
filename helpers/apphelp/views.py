@@ -81,7 +81,7 @@ from django.contrib.auth.models import User
 
 def leaderboard(request):
 
-    top10 = (UserProfileInfo.objects.values_list('user_id', 'points').order_by('points'))[:10]
+    top10 = (UserProfileInfo.objects.values_list('user_id', 'points').order_by('-points'))[:10]
     name=[]
     points=[]
     tuplist =[]
