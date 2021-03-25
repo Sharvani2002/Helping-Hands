@@ -1,0 +1,29 @@
+0 250ar-Money
+1 250en-Money
+2 500ar-Money
+3 500en-Money
+4 1000ar-Money
+5 1000en-Money
+6 5000ar-Money
+7 5000en-Money
+8 10000ar-Money
+9 10000en-Money
+10 25000ar-Money
+11 25000en-Money
+12 50000ar-Money
+13 50000en-Money
+14 Food Items
+15 Used Clothes
+16 Battery
+17 Metal
+18 Used Shoes
+19 Plastic
+20 Paper/Cardboard
+21 Glass
+22 New Clothes/Shoes
+23 Watches
+24 Sunglasses
+25 Handbags
+26 Belts
+27 Jewellery
+28 Daily Necessities

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+html {
+  box-sizing: border-box;
+}
+  
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+    background-color: #ffffff;
+  line-height: 1.5;
+  color: #000;
+}
+
+
+
+    .movie{
+        height: 70vh;
+        display: block;
+        background-color: white;
+        border-radius: 20px;
+        padding: 1em;
+        width: auto;
+        box-shadow: 0px -10px 20px -5px #E2E2E2;
+        text-align: center;
+    }
+
+    @media screen and (max-width:600px) {
+        .movie{
+            margin-top: 12vh;
+            margin-bottom: 12vh;
+        }
+}
+    table,tr,td,th{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td{
+      padding: 10px;  
+    }
+
+</style>
+</head>
+<body>
+
+
+<!-- Menu -->
+<ul>
+    {% for username in name %}
+      <li>{{ username }}</li>
+    {% endfor %} 
+    {% for score in points %}
+      <li>{{ score }}</li>
+    {% endfor %} 
+  </ul>
+
+    <div class="movie">
+        <h2><u>Leaderboard</u></h2>
+        <p>Showing results for: {{ user_name }}</p>
+        <table class="movie_table" align="center">
+            <tr>
+                <th>Rank</th>
+                <th>Name </th>
+                <th>Points</th>
+            </tr>
+
+            {% for entries in tuplist %}
+
+
+            <tr>
+                
+
+                {% for entry in entries %}
+                <td>{{ entry }}</td>
+                {% endfor %} 
+
+            </tr>
+            {% endfor %}
+            <tbody class="table_body">
+                
+            </tbody>
+        </table>
+        <br>
+        
+        
+        
+  </div>
+  <!-- <div>{{ top10 }}</div> -->
+</body>
+</html>
