@@ -6,4 +6,4 @@ The PASSCODE here is 6512df4(for testing). It uses servo motor to drive the lock
 <br>
 Red Led is status indicator and blue is Alarm, green is success(door opened). 
 <br>
-<img src = "Unlocked.mov" > 
+<img src = "image.png" > 
