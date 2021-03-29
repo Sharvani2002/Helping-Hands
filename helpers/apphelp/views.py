@@ -103,7 +103,7 @@ def donate(request):
         response['name'] = str(category)
         tf.keras.backend.clear_session()
 
-
+        response['d_img'] =''
         if(str(category)!='Glass' or str(category)!='Metal'):
             #save the image
             response['valid'] = 1
@@ -111,10 +111,36 @@ def donate(request):
             user_id = request.POST.get('id')
             a = UserProfileInfo.objects.get(user_id = user_id)
             a.points += 10
+
+            # full_filename = os.path.join(settings.MEDIA_ROOT, file_name)
+            from django.core.files.storage import default_storage
+            #  Saving POST'ed file to storage
+            file = f
+            # file_name = default_storage.save(file.name, file)
+            # print("File_name:======== ", file.name)
+            extension = file.name.split('.')[1]
+            ffnn = str("user_id_"+str(user_id)+"_"+str(int(a.points/10))+str('.')+str(extension))
+            file_name = default_storage.save(ffnn, file)
+
             a.save()
+            response['user_id']=user_id
+            response['points']= a.points
+            if(a.points>0):
+                response['d_img'] = os.path.join(str(settings.MEDIA_ROOT),str(ffnn))
+
+
+            #  Reading file from storage
+            # file = default_storage.open(file_name)
 
         else:
             response['valid'] = 0
+
+        # /home/somayaji/gsch/helpers/media
+        # file_url = default_storage.url(file_name)
+
+        # project_files = ProjectFile.objects.create(file_name=file_name,project_id=proj_id)
+        # project_files.save()
+            
         return render(request,'apphelp/donate.html',response)
 
     else:
