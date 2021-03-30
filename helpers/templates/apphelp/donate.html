@@ -1,12 +1,31 @@
 {% extends "apphelp/base.html" %}
+{% block title %} Donate {% endblock %}
+{% block extra_head %}
+{% load static %}
+
+<style>
+  #file-upload input[type="file"] {
+    display: none;
+  }
+  input[type="file"] {
+    display: none;
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+{% endblock %}
 {% block body_block %}
 <div class="container">
   <div class="jumbotron">
-    <h1>Welcome to the Helping Hands !</h1>
+    <h1 class="animate__animated animate__lightSpeedInRight">Welcome to Helping Hands !</h1>
     {% if user.is_authenticated %}
-        <h2>Hello {{ user.username }}</h2>
+        <h2>Hello {{ user.username }}, </h2>
+        <h2>Donate Here!</h2>
+        <i class="material-icons animate__animated animate__heartBeat animate__infinite">
+          volunteer_activism
+        </i>
+        <!-- <i class="material-icons animate__animated animate__heartBeat animate__infinite">favorite</i> -->
         <div>
-            <h1>Donate Here!</h1>
             <p>Click/Upload image of the object you want to donate here! </p>
             <h6>UPLOAD</h6>
             
@@ -14,23 +33,41 @@
                 
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <input type="file" name="sentFile" />
+                    <label for="file-upload" class="buttoni" align="center">
+                      Choose file
+                  </label><input type="file" id="file-upload" name="sentFile"/>
+
+                    <br>
                     <input type = "hidden" name = "id" value = {{ user.id }} />
-                    <input type="submit" name="submit" value="Upload" />
+                    <input type="submit" name="submit" value="Upload" class="buttoni" />
                     
                 </form>
-                <h3>Predictions:</h3>
-                <div>The item is: {{name}}</div>
-                <div>Donate images: {{d_img}}</div>
-                <img src="{{d_img}}">
+
+
+                
             
                 </div>
                 </div>
             
             </div>
+
+            <div class="container">
+              <div class="jumbotron">
+                <h2 align="center"> Predictions:</h2>
+                <div><h3>The item category is: {{name}}</h3></div>
+                <div>Donated images: {{d_static}}</div>
+                <!--
+                {% load static %}
+                <image id="profileImage" src="{% static '{{d_static}}' %}" />
+                
+                  <image src="{% static 'donations/user_id_5_14.png' %}" />
+                  <image id="profileImage" src="{% static 'images/user_id_5_27.png' %}" />
+              -->
+              </div></div>
     {% else %}
-        <h2>Register or Login if you'd like to</h2>
+        <h2>Register or Login if you'd like to donate stuff!</h2>
     {% endif %}
+          </div>
   </div>
 
 

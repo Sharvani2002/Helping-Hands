@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
+{% extends "apphelp/base.html" %}
+{% block title %}Leaderboard{% endblock %}
+
+  {% block extra_head %}
   <meta charset="UTF-8">
-  <title>Leaderboard</title>
+  <!-- <title>Leaderboard</title> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
@@ -23,17 +24,20 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 100%;
-    background-color: #ffffff;
+    background-color: #000000;
   line-height: 1.5;
   color: #000;
 }
 
+h1 {
+  color: #97c1d4;
+}
 
 
-    .movie{
+    .leaderboard{
         height: 70vh;
         display: block;
-        background-color: white;
+        background-color: rgb(0, 0, 0);
         border-radius: 20px;
         padding: 1em;
         width: auto;
@@ -42,58 +46,131 @@ body {
     }
 
     @media screen and (max-width:600px) {
-        .movie{
+        .leaderboard{
             margin-top: 12vh;
             margin-bottom: 12vh;
         }
 }
-    table,tr,td,th{
+    /* table,tr,td,th{
         border: 1px solid black;
         border-collapse: collapse;
     }
     td{
       padding: 10px;  
-    }
+    } */
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#A7A1AE;
+  background-color:#1F2739;
+}
+
+.blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.mycontainer th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.mycontainer td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.mycontainer {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.mycontainer td, .mycontainer th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.mycontainer tr:nth-child(odd) {
+	  background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.mycontainer tr:nth-child(even) {
+	  background-color: #2C3446;
+}
+
+.mycontainer th {
+	  background-color: #1F2739;
+}
+
+.mycontainer td:first-child { color: #FB667A; }
+
+.mycontainer tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.mycontainer td:hover {
+  background-color: #FFF842;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.mycontainer td:nth-child(4),
+.mycontainer th:nth-child(4) { display: none; }
+}
 
 </style>
-</head>
-<body>
+{% endblock %}
 
 
-<!-- Menu -->
-<ul>
-    {% for username in name %}
-      <li>{{ username }}</li>
-    {% endfor %} 
-    {% for score in points %}
-      <li>{{ score }}</li>
-    {% endfor %} 
-  </ul>
 
-    <div class="movie">
-        <h2><u>Leaderboard</u></h2>
-        <p>Showing results for: {{ user_name }}</p>
-        <table class="movie_table" align="center">
+{% block body_block %}
+<div class="mycontainer">
+  <div class="leaderboard">
+    <h1 align="center" color="blue" class="animate__animated animate__pulse animate__infinite">Leaderboard</h1>
+    <br><br>
+        <table class="mycontainer" align="center">
+          <!-- <table align="center"> -->
             <tr>
-                <th>Rank</th>
-                <th>Name </th>
-                <th>Points</th>
+                <th><h1>Rank</h1></th>
+                <th><h1>Name</h1></th>
+                <th><h1>Points</h1></th>
             </tr>
-
-            {% for entries in tuplist %}
-
-
-            <tr>
-                
-
-                {% for entry in entries %}
-                <td>{{ entry }}</td>
-                {% endfor %} 
-
-            </tr>
-            {% endfor %}
-            <tbody class="table_body">
-                
+            <tbody>
+              {% for entries in tuplist %}
+              <tr> 
+                 {% for entry in entries %}
+                  <td>{{ entry }}</td>
+                  {% endfor %} 
+  
+              </tr>
+              {% endfor %}
             </tbody>
         </table>
         <br>
@@ -101,6 +178,11 @@ body {
         
         
   </div>
-  <!-- <div>{{ top10 }}</div> -->
-</body>
-</html>
+  </div>
+
+
+
+  
+
+{% endblock %}
+

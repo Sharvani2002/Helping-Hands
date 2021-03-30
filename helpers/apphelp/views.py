@@ -22,9 +22,30 @@ import traceback
 from . import predict
 
 
+from apphelp.models import UserProfileInfo
+from django.contrib.auth.models import User
 
 def index(request):
-    return render(request,'apphelp/index.html')
+    # if 'is_private' in request.POST:
+    #     is_private = request.POST['is_private']
+    # else:
+    #     is_private = False
+    # user_id = request.POST.get('id')
+    # if (request.user.is_authenticated):
+    if (request.user.id):   
+        user_id = request.user.id
+        pts=0
+        try:
+            if(request.user.id):
+                a = UserProfileInfo.objects.get(user_id = user_id)
+                pts  = a.points
+            # pts = request.user.points
+                return render(request,'apphelp/index.html',{'points':pts})
+        except:
+            return render(request,'apphelp/index.html',{})
+    else:
+        return render(request,'apphelp/index.html',{})
+
 @login_required
 def special(request):
     return HttpResponse("You are logged in !")
@@ -65,9 +86,9 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('index'), {})
             else:
-                return HttpResponse("Your account was inactive.")
+                return HttpResponse("Your account was inactive.", {})
         else:
             print("Someone tried to login and failed.")
             print("They used username: {} and password: {}".format(username,password))
@@ -76,11 +97,20 @@ def user_login(request):
         return render(request, 'apphelp/login.html', {})
 
 
-from apphelp.models import UserProfileInfo
-from django.contrib.auth.models import User
 
 def leaderboard(request):
 
+    response = {}
+    if (request.user.id):   
+        user_id = request.user.id
+        pts=0
+        try:
+            if(request.user.id):
+                a = UserProfileInfo.objects.get(user_id = user_id)
+                response['points']= a.points
+
+        except:
+            response['points']= pts
     top10 = (UserProfileInfo.objects.values_list('user_id', 'points').order_by('-points'))[:10]
     name=[]
     points=[]
@@ -90,56 +120,66 @@ def leaderboard(request):
         user = (User.objects.filter(id = user_id_main).values('username'))[0]
         tuplist.append((i,user['username'],score))
         i+=1
+    response['tuplist']=tuplist
 
 
-    return render(request, 'apphelp/leaderboard.html', {'tuplist': tuplist})
+    return render(request, 'apphelp/leaderboard.html', response)
+
+from django.core.files.storage import FileSystemStorage
 
 def donate(request):
+    response = {}
+    if (request.user.id):   
+        pts=0
+        try:
+            if(request.user.id):
+                a = UserProfileInfo.objects.get(user_id = request.user.id)
+                response['points']= a.points
+        except:
+            response['points']= pts
+
+
     if  request.method == "POST":
         f=request.FILES['sentFile'] # here you get the files needed
-        response = {}
         label, category = predict.predict(f)
-
         response['name'] = str(category)
         tf.keras.backend.clear_session()
-
+        
         response['d_img'] =''
         if(str(category)!='Glass' or str(category)!='Metal'):
-            #save the image
             response['valid'] = 1
             # instance=request.user
             user_id = request.POST.get('id')
             a = UserProfileInfo.objects.get(user_id = user_id)
             a.points += 10
-
-            # full_filename = os.path.join(settings.MEDIA_ROOT, file_name)
             from django.core.files.storage import default_storage
-            #  Saving POST'ed file to storage
             file = f
-            # file_name = default_storage.save(file.name, file)
-            # print("File_name:======== ", file.name)
             extension = file.name.split('.')[1]
             ffnn = str("user_id_"+str(user_id)+"_"+str(int(a.points/10))+str('.')+str(extension))
-            file_name = default_storage.save(ffnn, file)
+            # file_name = default_storage.save(ffnn, file)
+            try:
+                folder=os.path.join(settings.STATIC_DIR, "donations")
+            except:
+                folder=settings.STATIC_DIR
 
+            fs = FileSystemStorage(location=folder) #defaults to   MEDIA_ROOT  
+            filename = fs.save(ffnn, f)
+            file_url = fs.url(filename)
+            file_html_url = os.path.join("donations",ffnn)
             a.save()
             response['user_id']=user_id
             response['points']= a.points
+
             if(a.points>0):
-                response['d_img'] = os.path.join(str(settings.MEDIA_ROOT),str(ffnn))
-
-
+                response['d_img'] = file_url
+                response['d_static']=file_html_url
             #  Reading file from storage
             # file = default_storage.open(file_name)
 
         else:
             response['valid'] = 0
+            response['d_static']='donations/user_id_5_15.jpg'
 
-        # /home/somayaji/gsch/helpers/media
-        # file_url = default_storage.url(file_name)
-
-        # project_files = ProjectFile.objects.create(file_name=file_name,project_id=proj_id)
-        # project_files.save()
             
         return render(request,'apphelp/donate.html',response)
 

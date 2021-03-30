@@ -2,9 +2,10 @@
 {% block body_block %}
 <div class="container">
   <div class="jumbotron">
-    <h1>Welcome to Helping Hands !</h1>
+    <h1 class="animate__animated animate__lightSpeedInRight">Welcome to Helping Hands !</h1>
     {% if user.is_authenticated %}
-        <h2>Hello {{ user.username }}</h2>
+    
+        <h2>Hello {{ user.username }},</h2><br><br>
         <h3>Your QR code: </h3>
         {% load qr_code %}
         {% qr_from_text "Helping Hands" size="m" image_format="png" error_correction="L" %}

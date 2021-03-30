@@ -2,16 +2,315 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Base</title>
+    <title>{% block title %} Home {% endblock %}</title>
+    <script type="text/javascript" src="jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+    
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    </script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        background-color: rgb(29, 28, 28);
+      }
+      
+      .sidenav {
+        height: 100%;
+        width: 20%;
+        position: fixed;
+        z-index: 1;
+        top: 50;
+        left: 10;
+        background-color: rgb(109, 109, 109);
+        overflow-x: hidden;
+        overflow-y: hidden;
+
+        color: #ffffff;
+      }
+      
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #ebe9e9;
+        display: block;
+      }
+      .pp-part{
+        padding-top: 80px;
+        padding-left: 55px;
+        margin-top: 80px;
+        margin-left: 55px;
+      }
+      .sidenav a:hover {
+        text-decoration: none;
+        font-size: 28px;
+        color: #e4d8d8;
+      }
+      #top-nav-part{
+        background-color: #33393d;
+        height: 40%;
+        padding-top: 40px;
+        padding-left: 55px;
+        padding-bottom: 40px;
+      }
+      .main {
+        /*margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+        
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+img{
+  max-width:180px;
+}
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    margin-top: 80px;
+    margin-left: 55px;
+}
+
+#profile-container img {
+    width: 150px;
+    height: 150px;
+}
+
+</style>
+<script>
+        $("#profileImage").click(function(e) {
+      $("#imageUpload").click();
+  });
+  
+  function fasterPreview( uploader ) {
+      if ( uploader.files && uploader.files[0] ){
+            $('#profileImage').attr('src', 
+               window.URL.createObjectURL(uploader.files[0]) );
+      }
+  }
+  
+  $("#imageUpload").change(function(){
+      fasterPreview( this );
+  });
+  </script>
+  <style>
+    .vertical {
+        border-left: 6px solid black;
+        height: 100%;
+        position:absolute;
+        left: 18%;
+    }
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+
+.mycontainer body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#A7A1AE;
+  background-color:#1F2739;
+}
+.mycontainer h1 {
+  color: #d4d6d6;
+}
+
+.blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.mycontainer th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #eee8e8;
+}
+
+.mycontainer td {
+	  font-weight: normal;
+    font-size: 1em;
+    color: white;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.mycontainer {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+  background-color:#1F2739;
+}
+
+.mycontainer td, .mycontainer th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.mycontainer tr:nth-child(odd) {
+	  background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.mycontainer tr:nth-child(even) {
+	  background-color: #2C3446;
+}
+
+.mycontainer th {
+	  background-color: #1F2739;
+}
+
+.mycontainer td:first-child { color: #f39faa; }
+
+.mycontainer tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.mycontainer td:hover {
+  background-color: #e2e2de;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #272726 -1px 1px, #464644 -2px 2px, #161616 -3px 3px, #111111 -4px 4px, #222222 -5px 5px, #383838 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.mycontainer td:nth-child(4),
+.mycontainer th:nth-child(4) { display: none; }
+}
+
+.buttonpt {
+  transition-duration: 0.2s;
+  background-color: #353535;
+  padding: 15px 32px;
+  border: 2px solid #474747;
+  /*width: 250px;*/
+  width: 50%;
+}
+.buttonpt:hover {
+  background-color: #494848;
+  color: white;
+  padding: 15px 32px;
+  border: 2px solid #474747;
+}
+.buttoni {
+  transition-duration: 0.4s;
+  background-color: #f7eeee;
+  padding: 15px 32px;
+  border: 2px solid #474747;
+  /*width: 250px;*/
+  width: 25%;
+}
+
+.buttoni:hover {
+  background-color: #494848;
+  color: white;
+  padding: 15px 32px;
+  border: 2px solid #474747;
+}
+#file-upload input[type="file"] {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
+input[type="file"] {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
+
+
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
   <body>
+    {% load static %} 
+    
+    <div class="sidenav">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <div id="top-nav-part">
+        <div id="profile-container"">
+          <image id="profileImage" src="{% static 'images/profile.png' %}" />
+        </div>
+        <input id="imageUpload" type="file" 
+              name="profile_photo" placeholder="Photo" required="" capture>
+       <br>
+
+       {% if user.is_authenticated %}
+       <h4 color="white">USER_NAME: {{ user.username }}</h4>
+       <!-- <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       <input type = "hidden" name = "id" value = {{ user.id }} />
+       <input type="submit" name="submit" value="View Points" class="buttonpt" /></form> -->
+       <h4 color="white">Points: {{ points }}</h4>
+     <br>
+     {% endif %}
+    </div>
+     <br><br>
+      <a href="{% url 'index' %}" class="w3-bar-item w3-button">Home</a>
+      <a href="{% url 'donate' %}" class="w3-bar-item w3-button">Donate</a>
+      <a href="{% url 'leaderboard' %}" class="w3-bar-item w3-button">LeaderBoard</a>
+    </div>
+    <div class = "vertical"></div>
+
+
+
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <ul class="nav navbar-nav">
-{# Django Home Link / Admin Link / Register Link#}
-          <li><a class="navbar-brand" href="{% url 'index' %}">DJANGO</a></li>
+           {# Django Home Link / Admin Link / Register Link#}
+          <li><a class="navbar-brand" href="{% url 'index' %}">Home</a></li>
           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
           <li><a class="navbar-link" href="{% url 'apphelp:register' %}">Register</a></li>     
           {# Some logic on what to display for last item#}
