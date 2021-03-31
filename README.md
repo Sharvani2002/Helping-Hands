@@ -1,4 +1,5 @@
-# google_solutions_challenge
+# Helping Hands
+## google_solutions_challenge
 
 ## Arduino section
 
