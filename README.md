@@ -8,7 +8,11 @@
 - Home Page: `http://127.0.0.1:8000/`
 
 ## Installations needed:
-- Tensorflow, Keras, Django
+- Tensorflow
+       pip install tensorflow
+- Keras
+- Django
+       pip install django
 - Preferably make a conda virtual env, install them in that and use it.
 - If you have a separate GPU (not the one integrated with CPU) and want to enable it, comment `os.environ['CUDA_VISIBLE_DEVICES'] = '-1'` in these files:
   - `helpers/helpers/settings.py` ,  `helpers/apphelp/predict.py` and `helpers/apphelp/views.py`.
