@@ -7,7 +7,7 @@
 - Leaderboard: `http://127.0.0.1:8000/leaderboard`
 - Donate Page: `http://127.0.0.1:8000/donate`
 - Home Page: `http://127.0.0.1:8000/`
-- Arduino part is in the `arduino` branch.
+- Arduino part is in the <a href="https://github.com/Sharvani2002/helping_hands/tree/arduino">`arduino`</a> branch.
 
 ## Installations needed:
 - Tensorflow
