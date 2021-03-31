@@ -27,3 +27,8 @@
 - the donated images are stored as `<path to the app>/static/donations/user_id_1_1.jpg`
 - More specifically, the last part is `user_id_<id>_<donation number>.jpg`
 - check the images folder for the web app pages and demo
+
+## Working of the arduino-based circuit 
+- A servo motor is used to drive the lock and the push button on the left acts as the box opening button, the one on the right acts a Reed Switch (door is closed == on)
+- The PASSCODE to be matched is 6512df4(for testing), the LED glows based on the comparison between entered passcode and '6512df4'.
+- Red Led is the status indicator, blue is for the Alarm, and green is for the case when the passcode matches.  
