@@ -32,3 +32,4 @@
 - A servo motor is used to drive the lock and the push button on the left acts as the box opening button, the one on the right acts a Reed Switch (door is closed == on)
 - The PASSCODE to be matched is 6512df4(for testing), the LED glows based on the comparison between entered passcode and '6512df4'.
 - Red Led is the status indicator, blue is for the Alarm, and green is for the case when the passcode matches.  
+- This circuit (simulated on Tinkercad) is a basic prototype of our intended model and needs further revision in terms of design. 
