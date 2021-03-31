@@ -7,5 +7,6 @@
 - Donate Page: `http://127.0.0.1:8000/donate`
 - Home Page: `http://127.0.0.1:8000/`
 - For QR code generator, you need to install this: `pip install django-qr-code`
-- the donated images are stored as `<path to the app>/media/user_id_1_1.jpg`
+- the donated images are stored as `<path to the app>/static/donations/user_id_1_1.jpg`
+- More specifically, the last part is `user_id_<id>_<donation number>.jpg`
 - check the images folder for the web app pages and demo
