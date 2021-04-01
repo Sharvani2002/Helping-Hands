@@ -33,10 +33,6 @@
   - `pip install Pillow`
   - For QR code generator, you need to install this: `pip install django-qr-code`
 
-## Other details (our reference): 
-- the donated images are stored as `<path to the app>/static/donations/user_id_1_1.jpg`
-- More specifically, the last part is `user_id_<id>_<donation number>.jpg`
-- check the images folder for the web app pages and demo
 
 ## Working of the arduino-based circuit 
 - A servo motor is used to drive the lock and the push button on the left acts as the box opening button, the one on the right acts a Reed Switch (door is closed == on)
@@ -44,20 +40,17 @@
 - Red Led is the status indicator, blue is for the Alarm, and green is for the case when the passcode matches.  
 - This circuit (simulated on Tinkercad) is a basic prototype of our intended model and needs further revision in terms of design. 
 
-## Datasets
-Clothes/Daily necessities:
-- https://github.com/zalandoresearch/fashion-mnist
-- https://www.kaggle.com/salil007/caavo
-- https://www.kaggle.com/imneonizer/normal-vs-camouflage-clothes
-- https://www.kaggle.com/mykolarobot/share-clothes-dataset
-
-Garbage:
-- https://www.kaggle.com/arfathbaigs/garbageclassification-final
-- https://www.kaggle.com/mostafaabla/garbage-classification
-
-Food:
-- https://www.kaggle.com/kmader/food41?select=food_c101_n10099_r64x64x1.h5
-- https://www.kaggle.com/vermaavi/food11
-
-Money:
-- https://www.kaggle.com/husamaamer/iraqi-currency-
+## Datasets used:
+- Clothes/Daily necessities:
+  - https://github.com/zalandoresearch/fashion-mnist
+  - https://www.kaggle.com/salil007/caavo
+  - https://www.kaggle.com/imneonizer/normal-vs-camouflage-clothes
+  - https://www.kaggle.com/mykolarobot/share-clothes-dataset
+- Garbage:
+  - https://www.kaggle.com/arfathbaigs/garbageclassification-final
+  - https://www.kaggle.com/mostafaabla/garbage-classification
+- Food:
+  - https://www.kaggle.com/kmader/food41?select=food_c101_n10099_r64x64x1.h5
+  - https://www.kaggle.com/vermaavi/food11
+- Money:
+  - https://www.kaggle.com/husamaamer/iraqi-currency-
