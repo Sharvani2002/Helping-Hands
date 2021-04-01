@@ -33,3 +33,21 @@
 - The PASSCODE to be matched is 6512df4(for testing), the LED glows based on the comparison between entered passcode and '6512df4'.
 - Red Led is the status indicator, blue is for the Alarm, and green is for the case when the passcode matches.  
 - This circuit (simulated on Tinkercad) is a basic prototype of our intended model and needs further revision in terms of design. 
+
+## Datasets
+Clothes/Daily necessities:
+- https://github.com/zalandoresearch/fashion-mnist
+- https://www.kaggle.com/salil007/caavo
+- https://www.kaggle.com/imneonizer/normal-vs-camouflage-clothes
+- https://www.kaggle.com/mykolarobot/share-clothes-dataset
+
+Garbage:
+- https://www.kaggle.com/arfathbaigs/garbageclassification-final
+- https://www.kaggle.com/mostafaabla/garbage-classification
+
+Food:
+- https://www.kaggle.com/kmader/food41?select=food_c101_n10099_r64x64x1.h5
+- https://www.kaggle.com/vermaavi/food11
+
+Money:
+- https://www.kaggle.com/husamaamer/iraqi-currency-
