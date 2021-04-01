@@ -3,9 +3,8 @@
   
 ## Description:
 
-    
-    <b>Mission:</b>
-    <b>Vision:</b>
+<b>Mission:</b><br>
+<b>Vision:</b>
 
 
 
