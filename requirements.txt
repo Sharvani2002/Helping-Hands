@@ -25,7 +25,7 @@ cryptography==3.3.1
 cv-bridge==1.13.0
 Cython==0.29.22
 diagnostic-updater==1.9.7
-Django==3.1.2
+Django==3.1.6
 django-qr-code==2.1.0
 dynamic-reconfigure==1.6.3
 dynamixel-sdk==3.7.31
