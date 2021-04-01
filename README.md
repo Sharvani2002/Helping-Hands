@@ -1,6 +1,17 @@
 # Helping Hands
   Just a step away from improving 100s of lives...
   
+## Description:
+
+    
+    <b>Mission:</b>
+    <b>Vision:</b>
+
+
+
+
+
+  
 ## To test the web app:
 - Clone the repo, go to the helpers directory and run `python manage.py runserver`
 - Go to the localhost location
