@@ -30,6 +30,7 @@
 
 ## Installations needed:
 - Python version: `Python 3.8.8`
+- conda version: `conda 4.8.3`
 - Tensorflow, Keras, Django, h5py
 - Preferably make a conda virtual env, install them in that and use it.
 - If you face any issues uncomment and change`os.environ['CUDA_VISIBLE_DEVICES'] = '-1'` to `os.environ['CUDA_VISIBLE_DEVICES'] = '0'` or other value accordingly in these files:
