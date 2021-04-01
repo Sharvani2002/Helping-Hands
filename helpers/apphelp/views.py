@@ -14,7 +14,7 @@ from django.conf import settings
 from django.shortcuts import redirect
 
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 from tensorflow.python.keras.backend import set_session
 import tensorflow.compat.v1 as tf
 import numpy as np

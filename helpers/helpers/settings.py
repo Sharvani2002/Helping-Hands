@@ -131,7 +131,7 @@ LOGIN_URL = '/apphelp/user_login/'
 
 
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 import keras
 import numpy as np
 # from keras import backend as K
