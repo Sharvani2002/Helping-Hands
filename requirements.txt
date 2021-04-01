@@ -73,7 +73,7 @@ PySocks==1.7.1
 python-qt-binding==0.4.3
 pyttsx3==2.90
 pytz==2020.1
-PyYAML==5.3.1
+PyYAML==5.4
 qt-dotgraph==0.4.2
 qt-gui==0.4.2
 qt-gui-py-common==0.4.2
