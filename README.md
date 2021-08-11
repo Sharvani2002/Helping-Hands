@@ -5,9 +5,16 @@
 
 <b>Mission:</b> Reach a greater goal by walking ahead without looking back. 
 <br>
-<b>Vision:</b> Eliminate hunger and poverty.
+<b>Vision:</b> Eliminate hunger and poverty.<br>
+We plan to solve the following UN sustainable goals with our solution:
+- Goal 1: No Poverty 
+- Goal 2: Zero Hunger 
 
+There is a huge disparity in how the resources are distributed . Some people have a lot while some have none. The people who have things in abundance often fail to realise its value and end up wasting them. We are trying to cultivate responsible consumption practices in people and also reduce hunger and poverty.
 
+<br>
+Youtube demo: https://youtu.be/tKd8x-LGLIs
+<br>
   
 ## To test the web app:
 - We used a conda environment for testing our app.
