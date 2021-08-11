@@ -15,7 +15,11 @@ There is a huge disparity in how the resources are distributed . Some people hav
 <br>
 Youtube demo: https://youtu.be/tKd8x-LGLIs
 <br>
-  
+  <br>
+We used the below technologies to train our ML model, load the weights and make predictions of the items donated. This ensures safe and valid donations (which need to be usable) and categorizes donations for easier access. <br>
+We used TinkerCAD for simulating the arduino part: The bin opens based on a passcode. The receiver needs to show the QR code which will be scanned by a bin of a particular category and opens if the QR code is valid. The QR code would first be required to be decoded by a scanning device and passed to the arduino in order to open a particular bin.
+
+
 ## To test the web app:
 - We used a conda environment for testing our app.
 - To make a conda environment from the yaml file `environment.yaml` in the root directory of our repo:
